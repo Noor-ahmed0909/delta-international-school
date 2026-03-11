@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+   :root {
+  --background: 210 40% 98%;
+  --foreground: 222 47% 11%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+
+  /* Primary Brand Color */
+  --primary: 196 89% 48%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary UI color */
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222 47% 11%;
+
+  /* Muted surfaces */
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 20% 45%;
+
+  /* Accent / CTA */
+  --accent: 24 95% 53%;
+  --accent-foreground: 0 0% 100%;
+
+  /* Errors */
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  /* Text secondary */
+  --text-secondary: 210 16% 47%;
+
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+
+  --ring: 196 89% 48%;
+
+  --radius: 0.75rem;
+
+  /* Custom tokens */
+
+  --hero-gradient: linear-gradient(
+  135deg,
+  hsl(196 95% 58%) 0%,
+  hsl(258 95% 72%) 100%
+);
+
+  --page-header-gradient: linear-gradient(
+  135deg,
+  hsl(258 95% 72%) 0%,
+  hsl(196 95% 58%) 100%
+);
+
+  --card-shadow: 0 4px 24px -4px hsl(222 47% 11% / 0.08);
+  --card-shadow-hover: 0 12px 32px -8px hsl(222 47% 11% / 0.15);
+
+  /* Sidebar */
+
+  --sidebar-background: 210 40% 98%;
+  --sidebar-foreground: 222 47% 11%;
+
+  --sidebar-primary: 196 89% 48%;
+  --sidebar-primary-foreground: 0 0% 100%;
+
+  --sidebar-accent: 210 40% 96%;
+  --sidebar-accent-foreground: 222 47% 11%;
+
+  --sidebar-border: 214 32% 91%;
+  --sidebar-ring: 196 89% 48%;
+}
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .page-header {
+    background: var(--page-header-gradient);
+    @apply py-20 md:py-28 text-center;
+  }
+
+  .page-header-title {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4;
+  }
+
+  .page-header-subtitle {
+    @apply text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-foreground mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-muted-foreground max-w-2xl mx-auto;
+  }
+
+  .feature-card {
+    @apply bg-card rounded-xl p-6 md:p-8 transition-all duration-300;
+    box-shadow: var(--card-shadow);
+  }
+
+  .feature-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    @apply -translate-y-1;
+  }
+
+  .icon-circle {
+    @apply w-14 h-14 rounded-xl flex items-center justify-center mb-4;
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+  }
+
+  .stat-item {
+    @apply text-center;
+  }
+
+  .stat-number {
+    @apply text-3xl md:text-4xl font-bold font-display;
+    color: hsl(var(--primary));
+  }
+
+  .stat-label {
+    @apply text-sm text-muted-foreground mt-1;
+  }
+}
